@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Live Score & Match Prediction Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="animated-title">IPL Live Score & Match Prediction Hub</h1>
+            <p class="subtitle">tooder.io</p>
+            <div class="cta-buttons">
+                <a href="#live-scores" class="btn btn-primary">Live Scores</a>
+                <a href="#predictions" class="btn btn-secondary">Match Predictions</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Scores Section -->
+    <section id="live-scores" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="live-dot"></span> Live Scores</h2>
+            <div class="score-cards">
+                <div class="score-card live">
+                    <div class="score-header">
+                        <h3>Mumbai Indians vs Chennai Super Kings</h3>
+                        <span class="live-badge"><span class="live-dot"></span> LIVE</span>
+                    </div>
+                    <div class="score-body">
+                        <div class="team-scores">
+                            <div class="team">
+                                <p class="team-name">Mumbai Indians</p>
+                                <p class="team-score">186/4</p>
+                            </div>
+                            <div class="team">
+                                <p class="team-name">Chennai Super Kings</p>
+                                <p class="team-score">200/6</p>
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <p>Overs: <span id="current-over">16.2</span></p>
+                            <p>Current Run Rate: <span id="current-rr">8.6</span></p>
+                        </div>
+                        <div class="recent-balls" id="recent-balls">
+                            <div class="ball ball-4">4</div>
+                            <div class="ball ball-1">1</div>
+                            <div class="ball ball-0">0</div>
+                            <div class="ball ball-w">W</div>
+                            <div class="ball ball-6">6</div>
+                            <div class="ball ball-1">1</div>
+                        </div>
+                        <div class="last-ball" id="last-ball">
+                            <span>Last ball:</span>
+                            <div class="ball ball-4 animated-ball">4</div>
+                        </div>
+                        <div class="player-stats">
+                            <p>Rohit Sharma: 68(42) | Hardik Pandya: 24(18)</p>
+                            <p>Bowling: Deepak Chahar 3-0-28-1</p>
+                        </div>
+                        <a href="#" class="view-scorecard">View Full Scorecard <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="score-card completed">
+                    <div class="score-header">
+                        <h3>Royal Challengers Bangalore vs Delhi Capitals</h3>
+                        <span class="completed-badge"><i class="fas fa-check-circle"></i> COMPLETED</span>
+                    </div>
+                    <div class="score-body">
+                        <div class="team-scores">
+                            <div class="team">
+                                <p class="team-name">Royal Challengers Bangalore</p>
+                                <p class="team-score">204/5</p>
+                            </div>
+                            <div class="team">
+                                <p class="team-name">Delhi Capitals</p>
+                                <p class="team-score">189/8</p>
+                            </div>
+                        </div>
+                        <div class="match-result">
+                            <p class="result">Royal Challengers Bangalore won by 15 runs</p>
+                            <p>Player of the Match: Virat Kohli (86 runs off 52 balls)</p>
+                        </div>
+                        <a href="#" class="view-scorecard">View Full Scorecard <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Matches Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Upcoming Matches</h2>
+            <div class="upcoming-matches">
+                <div class="match-card">
+                    <div class="match-teams">
+                        <h3>Mumbai Indians vs Chennai Super Kings</h3>
+                        <button class="reminder-btn" onclick="setReminder(1)">
+                            <i class="far fa-bell"></i> Set Reminder
+                        </button>
+                    </div>
+                    <div class="match-details">
+                        <p><i class="far fa-calendar-alt"></i> April 3, 2025</p>
+                        <p><i class="far fa-clock"></i> 7:30 PM IST</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Wankhede Stadium, Mumbai</p>
+                    </div>
+                    <div class="match-actions">
+                        <button class="btn btn-outline">Match Details</button>
+                        <button class="btn btn-primary">Predictions</button>
+                    </div>
+                </div>
+
+                <div class="match-card">
+                    <div class="match-teams">
+                        <h3>Kolkata Knight Riders vs Rajasthan Royals</h3>
+                        <button class="reminder-btn" onclick="setReminder(2)">
+                            <i class="far fa-bell"></i> Set Reminder
+                        </button>
+                    </div>
+                    <div class="match-details">
+                        <p><i class="far fa-calendar-alt"></i> April 4, 2025</p>
+                        <p><i class="far fa-clock"></i> 7:30 PM IST</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Eden Gardens, Kolkata</p>
+                    </div>
+                    <div class="match-actions">
+                        <button class="btn btn-outline">Match Details</button>
+                        <button class="btn btn-primary">Predictions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Match Predictions Section -->
+    <section id="predictions" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title light">AI-Powered Match Predictions</h2>
+            <div class="prediction-cards">
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <div class="prediction-date">
+                            <i class="far fa-calendar-alt"></i> April 3, 2025
+                        </div>
+                        <div class="confidence-level high">
+                            <i class="fas fa-chart-line"></i> High Confidence
+                        </div>
+                    </div>
+                    <div class="teams-comparison">
+                        <div class="team-prediction">
+                            <div class="team-logo mi-logo"></div>
+                            <h3>Mumbai Indians</h3>
+                            <p class="prediction-percentage" data-percentage="62">0%</p>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team-prediction">
+                            <div class="team-logo csk-logo"></div>
+                            <h3>Chennai Super Kings</h3>
+                            <p class="prediction-percentage" data-percentage="38">0%</p>
+                        </div>
+                    </div>
+                    <div class="prediction-bar-container">
+                        <div class="prediction-bar" id="prediction-bar-1"></div>
+                    </div>
+                    <div class="prediction-result">
+                        Our AI predicts <strong>Mumbai Indians</strong> will win
+                    </div>
+                    <div class="prediction-factors">
+                        <h4 class="factors-toggle" onclick="toggleFactors(this)">
+                            <i class="fas fa-chevron-down"></i> Key Prediction Factors
+                        </h4>
+                        <ul class="factors-list hidden">
+                            <li>Head-to-head: Mumbai Indians has won 8 out of the last 12 matches against Chennai Super Kings</li>
+                            <li>Current form: Mumbai Indians has won 4 out of their last 5 matches</li>
+                            <li>Venue advantage: Mumbai Indians has a strong record at this venue with 70% win rate</li>
+                            <li>Key player availability: All star players are available for both teams</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <div class="prediction-date">
+                            <i class="far fa-calendar-alt"></i> April 4, 2025
+                        </div>
+                        <div class="confidence-level medium">
+                            <i class="fas fa-chart-line"></i> Medium Confidence
+                        </div>
+                    </div>
+                    <div class="teams-comparison">
+                        <div class="team-prediction">
+                            <div class="team-logo kkr-logo"></div>
+                            <h3>Kolkata Knight Riders</h3>
+                            <p class="prediction-percentage" data-percentage="45">0%</p>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team-prediction">
+                            <div class="team-logo rr-logo"></div>
+                            <h3>Rajasthan Royals</h3>
+                            <p class="prediction-percentage" data-percentage="55">0%</p>
+                        </div>
+                    </div>
+                    <div class="prediction-bar-container">
+                        <div class="prediction-bar" id="prediction-bar-2"></div>
+                    </div>
+                    <div class="prediction-result">
+                        Our AI predicts <strong>Rajasthan Royals</strong> will win
+                    </div>
+                    <div class="prediction-factors">
+                        <h4 class="factors-toggle" onclick="toggleFactors(this)">
+                            <i class="fas fa-chevron-down"></i> Key Prediction Factors
+                        </h4>
+                        <ul class="factors-list hidden">
+                            <li>Head-to-head: Rajasthan Royals has won 7 out of the last 10 matches against Kolkata Knight Riders</li>
+                            <li>Current form: Rajasthan Royals has won 3 out of their last 5 matches</li>
+                            <li>Player performance: Key players from Rajasthan Royals are in excellent form</li>
+                            <li>Pitch conditions: The pitch is expected to favor Rajasthan Royals' bowling attack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Win Probability Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Live Win Probability</h2>
+            <div class="win-probability-container">
+                <div class="win-probability-header">
+                    <h3>Mumbai Indians vs Chennai Super Kings</h3>
+                    <div class="live-indicator">
+                        <span class="live-dot"></span> Live - Over <span id="win-prob-over">16</span>
+                    </div>
+                </div>
+                <div class="win-probability-chart-container">
+                    <canvas id="winProbabilityChart"></canvas>
+                </div>
+                <div class="team-probabilities">
+                    <div class="team-probability mi">
+                        <div class="team-probability-header">
+                            <h4>Mumbai Indians</h4>
+                            <span class="probability-percentage" id="mi-probability">68%</span>
+                        </div>
+                        <div class="probability-bar-container">
+                            <div class="probability-bar mi-bar" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <div class="team-probability csk">
+                        <div class="team-probability-header">
+                            <h4>Chennai Super Kings</h4>
+                            <span class="probability-percentage" id="csk-probability">32%</span>
+                        </div>
+                        <div class="probability-bar-container">
+                            <div class="probability-bar csk-bar" style="width: 32%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="probability-factors">
+                    <h4>Key Factors Affecting Win Probability:</h4>
+                    <ul>
+                        <li>Current run rate: 8.6 runs per over</li>
+                        <li>Required run rate: 10.2 runs per over</li>
+                        <li>Wickets in hand: 6</li>
+                        <li>Batting strength remaining: Strong middle order</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Stats Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Player Performance Tracker</h2>
+            <div class="player-cards">
+                <div class="player-card">
+                    <div class="player-header">
+                        <div class="player-image" style="background-image: url('images/player1.jpg')"></div>
+                        <div class="player-info">
+                            <h3>Virat Kohli</h3>
+                            <p>Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="player-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="overview-1">Overview</button>
+                            <button class="tab-btn" data-tab="performance-1">Performance</button>
+                            <button class="tab-btn" data-tab="history-1">History</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview-1">
+                                <div class="player-stats-grid">
+                                    <div class="stat-box">
+                                        <p class="stat-label">Matches</p>
+                                        <p class="stat-value">8</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Runs</p>
+                                        <p class="stat-value">342</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Strike Rate</p>
+                                        <p class="stat-value">148.7</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Form</p>
+                                        <p class="stat-value good">Good</p>
+                                    </div>
+                                </div>
+                                <div class="recent-performance">
+                                    <p>Recent Performance:</p>
+                                    <div class="recent-scores">
+                                        <div class="score-bubble fifty">50</div>
+                                        <div class="score-bubble out">W</div>
+                                        <div class="score-bubble">32</div>
+                                        <div class="score-bubble fifty">86</div>
+                                        <div class="score-bubble">12</div>
+                                        <div class="score-bubble">44</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="performance-1">
+                                <div class="performance-chart-container">
+                                    <canvas id="playerPerformanceChart1"></canvas>
+                                </div>
+                                <div class="performance-stats">
+                                    <p>Average: 48.5 runs per match</p>
+                                    <p>Highest: 89 runs vs DC</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="history-1">
+                                <div class="history-chart-container">
+                                    <canvas id="playerHistoryChart1"></canvas>
+                                </div>
+                                <div class="history-stats">
+                                    <p>IPL Career:</p>
+                                    <p>Total Runs: 2,100</p>
+                                    <p>Matches: 72</p>
+                                    <p>Centuries: 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card">
+                    <div class="player-header">
+                        <div class="player-image" style="background-image: url('images/player2.jpg')"></div>
+                        <div class="player-info">
+                            <h3>Jasprit Bumrah</h3>
+                            <p>Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="player-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="overview-2">Overview</button>
+                            <button class="tab-btn" data-tab="performance-2">Performance</button>
+                            <button class="tab-btn" data-tab="history-2">History</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview-2">
+                                <div class="player-stats-grid">
+                                    <div class="stat-box">
+                                        <p class="stat-label">Matches</p>
+                                        <p class="stat-value">8</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Wickets</p>
+                                        <p class="stat-value">14</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Economy</p>
+                                        <p class="stat-value">7.2</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Form</p>
+                                        <p class="stat-value good">Good</p>
+                                    </div>
+                                </div>
+                                <div class="recent-performance">
+                                    <p>Recent Performance:</p>
+                                    <div class="recent-scores">
+                                        <div class="score-bubble wickets">3W</div>
+                                        <div class="score-bubble wickets">2W</div>
+                                        <div class="score-bubble">0W</div>
+                                        <div class="score-bubble wickets">1W</div>
+                                        <div class="score-bubble wickets">2W</div>
+                                        <div class="score-bubble">0W</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="performance-2">
+                                <div class="performance-chart-container">
+                                    <canvas id="playerPerformanceChart2"></canvas>
+                                </div>
+                                <div class="performance-stats">
+                                    <p>Average: 1.8 wickets per match</p>
+                                    <p>Best: 3 wickets vs CSK</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="history-2">
+                                <div class="history-chart-container">
+                                    <canvas id="playerHistoryChart2"></canvas>
+                                </div>
+                                <div class="history-stats">
+                                    <p>IPL Career:</p>
+                                    <p>Total Wickets: 80</p>
+                                    <p>Matches: 72</p>
+                                    <p>Best Figures: 4/22</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-card">
+                    <div class="player-header">
+                        <div class="player-image" style="background-image: url('images/player3.jpg')"></div>
+                        <div class="player-info">
+                            <h3>MS Dhoni</h3>
+                            <p>Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="player-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="overview-3">Overview</button>
+                            <button class="tab-btn" data-tab="performance-3">Performance</button>
+                            <button class="tab-btn" data-tab="history-3">History</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview-3">
+                                <div class="player-stats-grid">
+                                    <div class="stat-box">
+                                        <p class="stat-label">Matches</p>
+                                        <p class="stat-value">7</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Runs</p>
+                                        <p class="stat-value">156</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Strike Rate</p>
+                                        <p class="stat-value">162.5</p>
+                                    </div>
+                                    <div class="stat-box">
+                                        <p class="stat-label">Form</p>
+                                        <p class="stat-value good">Good</p>
+                                    </div>
+                                </div>
+                                <div class="recent-performance">
+                                    <p>Recent Performance:</p>
+                                    <div class="recent-scores">
+                                        <div class="score-bubble">32</div>
+                                        <div class="score-bubble">18</div>
+                                        <div class="score-bubble out">W</div>
+                                        <div class="score-bubble">24</div>
+                                        <div class="score-bubble fifty">52</div>
+                                        <div class="score-bubble">30</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="performance-3">
+                                <div class="performance-chart-container">
+                                    <canvas id="playerPerformanceChart3"></canvas>
+                                </div>
+                                <div class="performance-stats">
+                                    <p>Average: 26.0 runs per match</p>
+                                    <p>Highest: 52 runs vs RCB</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="history-3">
+                                <div class="history-chart-container">
+                                    <canvas id="playerHistoryChart3"></canvas>
+                                </div>
+                                <div class="history-stats">
+                                    <p>IPL Career:</p>
+                                    <p>Total Runs: 4,982</p>
+                                    <p>Matches: 234</p>
+                                    <p>Highest: 84*</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Comparison Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Team Comparison</h2>
+            <div class="team-comparison-container">
+                <h3 class="comparison-title">Mumbai Indians vs Chennai Super Kings</h3>
+                <div class="comparison-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="head-to-head">Head to Head</button>
+                        <button class="tab-btn" data-tab="team-strength">Team Strength</button>
+                        <button class="tab-btn" data-tab="player-comparison">Player Comparison</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="head-to-head">
+                            <div class="head-to-head-chart-container">
+                                <canvas id="headToHeadChart"></canvas>
+                            </div>
+                            <div class="comparison-stats-grid">
+                                <div class="comparison-stat-box">
+                                    <h4>Last Encounter</h4>
+                                    <p>Mumbai Indians defeated Chennai Super Kings by 24 runs</p>
+                                    <p class="stat-date">March 15, 2025</p>
+                                </div>
+                                <div class="comparison-stat-box">
+                                    <h4>Highest Score</h4>
+                                    <p>Mumbai Indians: 223/5 (April 2023)</p>
+                                    <p>Chennai Super Kings: 218/7 (May 2024)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="team-strength">
+                            <div class="team-strength-chart-container">
+                                <canvas id="teamStrengthChart"></canvas>
+                            </div>
+                            <div class="strength-analysis">
+                                <h4>Analysis:</h4>
+                                <ul>
+                                    <li>Mumbai Indians has stronger batting lineup and more experienced players</li>
+                                    <li>Chennai Super Kings has better bowling attack, especially in spin department</li>
+                                    <li>Both teams are evenly matched in fielding</li>
+                                    <li>Mumbai Indians is in slightly better form based on recent performances</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="player-comparison">
+                            <div class="player-comparison-chart-container">
+                                <canvas id="playerComparisonChart"></canvas>
+                            </div>
+                            <div class="comparison-stats-grid">
+                                <div class="comparison-stat-box">
+                                    <h4>Key Players - Mumbai Indians</h4>
+                                    <ul>
+                                        <li>Rohit Sharma (Captain, Batsman)</li>
+                                        <li>Jasprit Bumrah (Pace Bowler)</li>
+                                        <li>Hardik Pandya (All-rounder)</li>
+                                    </ul>
+                                </div>
+                                <div class="comparison-stat-box">
+                                    <h4>Key Players - Chennai Super Kings</h4>
+                                    <ul>
+                                        <li>MS Dhoni (Captain, Wicketkeeper)</li>
+                                        <li>Ravindra Jadeja (All-rounder)</li>
+                                        <li>Deepak Chahar (Pace Bowler)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fantasy Cricket Insights -->
+    <section class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title light">Fantasy Cricket Insights</h2>
+            <div class="fantasy-container">
+                <div class="fantasy-header">
+                    <h3>Recommendations</h3>
+                    <div class="match-selector">
+                        <label for="fantasy-match">Select Match:</label>
+                        <select id="fantasy-match">
+                            <option value="mi-csk">Mumbai Indians vs Chennai Super Kings - April 3, 2025</option>
+                            <option value="rcb-dc">Royal Challengers Bangalore vs Delhi Capitals - April 4, 2025</option>
+                            <option value="kkr-rr">Kolkata Knight Riders vs Rajasthan Royals - April 5, 2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fantasy-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="top-picks">Top Picks</button>
+                        <button class="tab-btn" data-tab="value-picks">Value Picks</button>
+                        <button class="tab-btn" data-tab="differentials">Differentials</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="top-picks">
+                            <div class="fantasy-cards">
+                                <div class="fantasy-player-card">
+                                    <div class="player-card-header">
+                                        <div>
+                                            <h4>Rohit Sharma</h4>
+                                            <p>Mumbai Indians • Batsman</p>
+                                        </div>
+                                        <div class="form-badge up">
+                                            <i class="fas fa-arrow-up"></i> In Form
+                                        </div>
+                                    </div>
+                                    <div class="player-card-image" style="background-image: url('images/player1.jpg')"></div>
+                                    <div class="player-card-stats">
+                                        <div class="player-stat">
+                                            <p class="stat-label">Points</p>
+                                            <p class="stat-value">92</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Price</p>
+                                            <p class="stat-value">10.5 Cr</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Ownership</p>
+                                            <p class="stat-value">78%</p>
+                                        </div>
+                                    </div>
+                                    <div class="player-card-footer">
+                                        <div class="ai-confidence">
+                                            <i class="fas fa-bolt"></i> AI Confidence: High
+                                        </div>
+                                        <div class="player-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="fantasy-player-card">
+                                    <div class="player-card-header">
+                                        <div>
+                                            <h4>Jasprit Bumrah</h4>
+                                            <p>Mumbai Indians • Bowler</p>
+                                        </div>
+                                        <div class="form-badge up">
+                                            <i class="fas fa-arrow-up"></i> In Form
+                                        </div>
+                                    </div>
+                                    <div class="player-card-image" style="background-image: url('images/player2.jpg')"></div>
+                                    <div class="player-card-stats">
+                                        <div class="player-stat">
+                                            <p class="stat-label">Points</p>
+                                            <p class="stat-value">88</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Price</p>
+                                            <p class="stat-value">9.5 Cr</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Ownership</p>
+                                            <p class="stat-value">65%</p>
+                                        </div>
+                                    </div>
+                                    <div class="player-card-footer">
+                                        <div class="ai-confidence">
+                                            <i class="fas fa-bolt"></i> AI Confidence: High
+                                        </div>
+                                        <div class="player-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="captain-picks">
+                                <h4>Captain & Vice-Captain Picks</h4>
+                                <p>Based on our AI analysis, here are the best choices:</p>
+                                <div class="captain-badges">
+                                    <span class="captain-badge">
+                                        <i class="fas fa-star"></i> Captain: Rohit Sharma (2x points)
+                                    </span>
+                                    <span class="vice-captain-badge">
+                                        <i class="fas fa-star"></i> Vice-Captain: Ravindra Jadeja (1.5x points)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="value-picks">
+                            <div class="fantasy-cards">
+                                <div class="fantasy-player-card">
+                                    <div class="player-card-header">
+                                        <div>
+                                            <h4>Tilak Varma</h4>
+                                            <p>Mumbai Indians • Batsman</p>
+                                        </div>
+                                        <div class="form-badge up">
+                                            <i class="fas fa-arrow-up"></i> In Form
+                                        </div>
+                                    </div>
+                                    <div class="player-card-image" style="background-image: url('images/player5.jpg')"></div>
+                                    <div class="player-card-stats">
+                                        <div class="player-stat">
+                                            <p class="stat-label">Points</p>
+                                            <p class="stat-value">78</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Price</p>
+                                            <p class="stat-value">7.5 Cr</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Ownership</p>
+                                            <p class="stat-value">35%</p>
+                                        </div>
+                                    </div>
+                                    <div class="player-card-footer">
+                                        <div class="ai-confidence">
+                                            <i class="fas fa-bolt"></i> AI Confidence: Medium
+                                        </div>
+                                        <div class="player-rating">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="fantasy-player-card">
+                                    <div class="player-card-header">
+                                        <div>
+                                            <h4>Deepak Chahar</h4>
+                                            <p>Chennai Super Kings • Bowler</p>
+                                        </div>
+                                        <div class="form-badge neutral">
+                                            <i class="fas fa-minus"></i> Steady
+                                        </div>
+                                    </div>
+                                    <div class="player-card-image" style="background-image: url('images/player6.jpg')"></div>
+                                    <div class="player-card-stats">
+                                        <div class="player-stat">
+                                            <p class="stat-label">Points</p>
+                                            <p class="stat-value">75</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Price</p>
+                                            <p class="stat-value">8.0 Cr</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Ownership</p>
+                                            <p class="stat-value">42%</p>
+                                        </div>
+                                    </div>
+                                    <div class="player-card-footer">
+                                        <div class="ai-confidence">
+                                            <i class="fas fa-bolt"></i> AI Confidence: Medium
+                                        </div>
+                                        <div class="player-rating">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="value-analysis">
+                                <h4>Value Analysis</h4>
+                                <p>These players offer excellent value for their price point and could help you fit more premium players in your team.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="differentials">
+                            <!-- Differential picks content -->
+                            <div class="fantasy-cards">
+                                <div class="fantasy-player-card">
+                                    <div class="player-card-header">
+                                        <div>
+                                            <h4>Nehal Wadhera</h4>
+                                            <p>Mumbai Indians • Batsman</p>
+                                        </div>
+                                        <div class="form-badge up">
+                                            <i class="fas fa-arrow-up"></i> In Form
+                                        </div>
+                                    </div>
+                                    <div class="player-card-image" style="background-image: url('images/player7.jpg')"></div>
+                                    <div class="player-card-stats">
+                                        <div class="player-stat">
+                                            <p class="stat-label">Points</p>
+                                            <p class="stat-value">65</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Price</p>
+                                            <p class="stat-value">6.0 Cr</p>
+                                        </div>
+                                        <div class="player-stat">
+                                            <p class="stat-label">Ownership</p>
+                                            <p class="stat-value">12%</p>
+                                        </div>
+                                    </div>
+                                    <div class="player-card-footer">
+                                        <div class="ai-confidence">
+                                            <i class="fas fa-bolt"></i> AI Confidence: Medium
+                                        </div>
+                                        <div class="player-rating">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="differential-strategy">
+                                <h4>Differential Strategy</h4>
+                                <p>Low ownership players who could give you an edge in head-to-head contests and help you climb the rankings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dream11-suggestion">
+                    <h4>Dream11 Team Suggestion</h4>
+                    <div class="dream11-team">
+                        <div class="dream11-grid">
+                            <div class="dream11-position">
+                                <p class="position-label">Wicketkeepers</p>
+                                <p class="position-players">MS Dhoni</p>
+                            </div>
+                            <div class="dream11-position">
+                                <p class="position-label">Batsmen</p>
+                                <p class="position-players">Rohit Sharma, Tilak Varma, Devon Conway, Ruturaj Gaikwad</p>
+                            </div>
+                            <div class="dream11-position">
+                                <p class="position-label">All-rounders</p>
+                                <p class="position-players">Ravindra Jadeja, Hardik Pandya</p>
+                            </div>
+                            <div class="dream11-position">
+                                <p class="position-label">Bowlers</p>
+                                <p class="position-players">Jasprit Bumrah, Deepak Chahar, Tushar Deshpande, Piyush Chawla</p>
+                            </div>
+                        </div>
+                        <div class="dream11-footer">
+                            <span>Credits Used: 99.5/100</span>
+                            <span>Expected Points: 850-950</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Match Reports Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">AI-Generated Match Reports</h2>
+            <div class="match-reports">
+                <div class="match-report-card">
+                    <div class="report-header">
+                        <h3>Mumbai Indians vs Chennai Super Kings</h3>
+                        <div class="report-date">
+                            <i class="far fa-calendar-alt"></i> April 1, 2025
+                        </div>
+                    </div>
+                    <div class="report-body">
+                        <div class="report-result">
+                            <p class="result">Mumbai Indians won by 24 runs</p>
+                        </div>
+                        <div class="report-summary">
+                            <p>Mumbai Indians put on a clinical performance to defeat Chennai Super Kings by 24 runs in a high-scoring encounter at the Wankhede Stadium. Rohit Sharma's explosive 86 off 52 balls set the tone for MI's imposing total of 186/4.</p>
+                        </div>
+                        <div class="report-key-moments">
+                            <h4>Key Moments</h4>
+                            <ul>
+                                <li>Rohit Sharma's explosive start in the powerplay (42 runs in first 6 overs)</li>
+                                <li>Jasprit Bumrah's crucial spell in the middle overs (3/24)</li>
+                                <li>MS Dhoni's late cameo (32 off 18) that kept CSK in the hunt</li>
+                                <li>Hardik Pandya's final over that sealed the win for MI</li>
+                            </ul>
+                        </div>
+                        <div class="report-stats-grid">
+                            <div class="report-stats-box">
+                                <h4>Top Performers</h4>
+                                <ul>
+                                    <li><i class="fas fa-award"></i> Rohit Sharma: 86(52)</li>
+                                    <li><i class="fas fa-award"></i> Jasprit Bumrah: 3/24</li>
+                                    <li><i class="fas fa-award"></i> MS Dhoni: 32(18)</li>
+                                </ul>
+                            </div>
+                            <div class="report-stats-box">
+                                <h4>Impact on Points Table</h4>
+                                <ul>
+                                    <li class="up"><i class="fas fa-arrow-up"></i> MI: Moved to 3rd position</li>
+                                    <li class="down"><i class="fas fa-arrow-down"></i> CSK: Dropped to 5th position</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="report-analysis">
+                            <h4>AI Analysis</h4>
+                            <p>Mumbai Indians' balanced performance across all departments gave them the edge in this encounter. Their aggressive batting in the powerplay and disciplined bowling in the death overs proved decisive. Chennai Super Kings will need to address their middle-order batting concerns before their next match.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="match-report-card">
+                    <div class="report-header">
+                        <h3>Royal Challengers Bangalore vs Delhi Capitals</h3>
+                        <div class="report-date">
+                            <i class="far fa-calendar-alt"></i> April 2, 2025
+                        </div>
+                    </div>
+                    <div class="report-body">
+                        <div class="report-result">
+                            <p class="result">Royal Challengers Bangalore won by 15 runs</p>
+                        </div>
+                        <div class="report-summary">
+                            <p>Royal Challengers Bangalore continued their winning streak with a convincing 15-run victory over Delhi Capitals. Virat Kohli's masterful 86 and a disciplined bowling performance led by Mohammed Siraj (3/32) were the highlights of the match.</p>
+                        </div>
+                        <div class="report-key-moments">
+                            <h4>Key Moments</h4>
+                            <ul>
+                                <li>Virat Kohli and Faf du Plessis' 112-run opening partnership</li>
+                                <li>Mohammed Siraj's double-wicket over that broke DC's momentum</li>
+                                <li>Axar Patel's fighting 45(28) that kept DC in the chase</li>
+                                <li>Harshal Patel's economical death bowling (1/24 in 4 overs)</li>
+                            </ul>
+                        </div>
+                        <div class="report-stats-grid">
+                            <div class="report-stats-box">
+                                <h4>Top Performers</h4>
+                                <ul>
+                                    <li><i class="fas fa-award"></i> Virat Kohli: 86(52)</li>
+                                    <li><i class="fas fa-award"></i> Mohammed Siraj: 3/32</li>
+                                    <li><i class="fas fa-award"></i> Axar Patel: 45(28)</li>
+                                </ul>
+                            </div>
+                            <div class="report-stats-box">
+                                <h4>Impact on Points Table</h4>
+                                <ul>
+                                    <li class="up"><i class="fas fa-arrow-up"></i> RCB: Moved to 2nd position</li>
+                                    <li class="down"><i class="fas fa-arrow-down"></i> DC: Remains at 6th position</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="report-analysis">
+                            <h4>AI Analysis</h4>
+                            <p>Royal Challengers Bangalore's batting depth and improved bowling attack have made them serious contenders this season. Their ability to accelerate in the middle overs and control the game in the death overs has been impressive. Delhi Capitals need to work on their batting consistency to stay in playoff contention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter & Ads Section -->
+    <section class="section bg-gradient">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2 class="section-title light">Stay Updated</h2>
+                <p class="newsletter-subtitle">Subscribe to our newsletter for daily match predictions and fantasy tips</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>IPL Score Hub</h3>
+                    <p>Your one-stop destination for IPL scores, predictions, and analytics.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#live-scores">Live Scores</a></li>
+                        <li><a href="#predictions">Predictions</a></li>
+                        <li><a href="#">Team Stats</a></li>
+                        <li><a href="#">Fantasy Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Teams</h4>
+                    <ul>
+                        <li><a href="#">Mumbai Indians</a></li>
+                        <li><a href="#">Chennai Super Kings</a></li>
+                        <li><a href="#">Royal Challengers Bangalore</a></li>
+                        <li><a href="#">View All Teams</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IPL Score Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
